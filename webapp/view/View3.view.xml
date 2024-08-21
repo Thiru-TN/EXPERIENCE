@@ -1,0 +1,223 @@
+<mvc:View controllerName="app.controller.View3"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:s="sap.f"
+    xmlns:f="sap.ui.layout.form"
+    displayBlock="true">
+    
+    <s:ShellBar
+        homeIcon="./logo.png"
+        title="EXPERIENCE"
+        secondTitle="A Truspeq Service"
+        id="shellBar"
+        showSearch="true"
+        showNotifications="true"
+        notificationsNumber="4"
+        homeIconPressed="onHome"
+        notificationsPressed="onNotifications">
+    </s:ShellBar>
+    <Page>
+        <Toolbar>
+            <Button text="Back" type="Neutral" icon="sap-icon://nav-back" press="onBack" />
+            <ToolbarSpacer /><ToolbarSpacer /><ToolbarSpacer />
+            <Button text="Logout" type="Reject" icon="sap-icon://log" press="onLogout" />
+        </Toolbar>
+        <IconTabBar id="iconTabBar" select="onSelectTab">
+            <items>
+                <IconTabFilter key="Default" icon="sap-icon://home" text="Default" />
+                <IconTabFilter key="SimpleForm" icon="sap-icon://detail-view" text="Simple Form" />
+                <IconTabFilter key="Table" icon="sap-icon://table-view" text="Table" />
+            </items>
+            <content>
+                <ScrollContainer vertical="true" height="100%" focusable="true">
+                    <!-- Default view content -->
+                    <Panel id="defaultPanel" headerText="Billing" visible="true" height="100%" width="100%" class="sapUiResponsiveContentPadding">
+                        <HBox width="100%">
+                            <!-- Left side -->
+                            <VBox width="20%">
+                                <List id="leftList" items="{/ProductCollection}" selectionChange="onLeftItemSelect">
+                                    <items>
+                                        <StandardListItem title="{Name}" type="Navigation" press="onListItemPress" />
+                                    </items>
+                                </List>
+                            </VBox>
+                            
+                            <!-- Right side -->
+                            <VBox width="80%" height="100%">
+                                <Table id="table" items="{/SelectedItems}">
+                                    <columns>
+                                        <Column>
+                                            <Text text="Name"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="ProductId"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="Category"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="SupplierName"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="Price"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="Quantity"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="CurrencyCode"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="WeightMeasure"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="WeightUnit"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="Width"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="Depth"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="Height"/>
+                                        </Column>
+                                        <Column>
+                                            <Text text="DimUnit"/>
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem>
+                                            <cells>
+                                                <ObjectIdentifier title="{Name}"/>
+                                                <Text text="{ProductId}"/>
+                                                <Text text="{Category}"/>
+                                                <Text text="{SupplierName}"/>
+                                                <Text text="{Price}"/>
+                                                <Text text="{Quantity}"/>
+                                                <Text text="{CurrencyCode}"/>
+                                                <Text text="{WeightMeasure}"/>
+                                                <Text text="{WeightUnit}"/>
+                                                <Text text="{Width}"/>
+                                                <Text text="{Depth}"/>
+                                                <Text text="{Height}"/>
+                                                <Text text="{DimUnit}"/>
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                                <Toolbar>
+                                    <Label id="itemCountLabel" text="{= ${/SelectedItems} ? ${/SelectedItems}.length : 0} items in the table"/>
+                                    <ToolbarSpacer/>
+                                    <Button text="Finish" type="Emphasized" press="onFinish" />
+                                </Toolbar>
+                            </VBox>
+                        </HBox>
+                    </Panel>
+
+                    <!-- Simple Form view content -->
+                    <Panel id="simpleFormPanel" headerText="Simple Form View" visible="false" height="100%" width="100%" class="sapUiResponsiveContentPadding">
+                        <ScrollContainer height="100%" vertical="true">
+                            <VBox class="sapUiSmallMargin">
+                                <f:SimpleForm id="simpleForm" editable="false" layout="ResponsiveGridLayout" width="100%" columnsL="2" columnsM="2" columnsS="1">
+                                    <f:content>
+                                        <Label text="Name" />
+                                        <Text text="{Name}" />
+                                        <Label text="ProductId" />
+                                        <Text text="{ProductId}" />
+                                        <Label text="Category" />
+                                        <Text text="{Category}" />
+                                        <Label text="SupplierName" />
+                                        <Text text="{SupplierName}" />
+                                        <Label text="Price" />
+                                        <Text text="{Price}" />
+                                        <Label text="CurrencyCode" />
+                                        <Text text="{CurrencyCode}" />
+                                        <Label text="Description" />
+                                        <Text text="{Description}" />
+                                        <Label text="WeightMeasure" />
+                                        <Text text="{WeightMeasure}" />
+                                        <Label text="WeightUnit" />
+                                        <Text text="{WeightUnit}" />
+                                        <Label text="Width" />
+                                        <Text text="{Width}" />
+                                        <Label text="Depth" />
+                                        <Text text="{Depth}" />
+                                        <Label text="Height" />
+                                        <Text text="{Height}" />
+                                        <Label text="DimUnit" />
+                                        <Text text="{DimUnit}" />
+                                    </f:content>
+                                </f:SimpleForm>
+                            </VBox>
+                        </ScrollContainer>
+                    </Panel>
+
+                    <!-- Table view content -->
+                    <Panel id="tablePanel" headerText="Table View" visible="false" height="100%" width="100%" class="sapUiResponsiveContentPadding">
+                        <ScrollContainer height="100%" vertical="true">
+                            <Table id="tableContent" items="{/ProductCollection}">
+                                <columns>
+                                    <Column>
+                                        <Text text="Name"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="ProductId"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="Category"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="SupplierName"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="Price"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="CurrencyCode"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="WeightMeasure"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="WeightUnit"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="Width"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="Depth"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="Height"/>
+                                    </Column>
+                                    <Column>
+                                        <Text text="DimUnit"/>
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <ObjectIdentifier title="{Name}"/>
+                                            <Text text="{ProductId}"/>
+                                            <Text text="{Category}"/>
+                                            <Text text="{SupplierName}"/>
+                                            <Text text="{Price}"/>
+                                            <Text text="{CurrencyCode}"/>
+                                            <Text text="{WeightMeasure}"/>
+                                            <Text text="{WeightUnit}"/>
+                                            <Text text="{Width}"/>
+                                            <Text text="{Depth}"/>
+                                            <Text text="{Height}"/>
+                                            <Text text="{DimUnit}"/>
+                                        </cells>
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                        </ScrollContainer>
+                    </Panel>
+                </ScrollContainer>
+            </content>
+        </IconTabBar>
+    </Page>
+</mvc:View>

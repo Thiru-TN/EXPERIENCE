@@ -1,0 +1,16 @@
+/* Enter your custom styles here */
+.sapUiBodyDark {
+    background-color: #333 !important;
+    color: #fff !important;
+}
+.sapUiBodyDark .sapMInputBaseInner {
+    background-color: #555 !important;
+    color: #fff !important;
+}
+.sapUiBodyDark .sapMText {
+    color: #fff !important;
+}
+.sapUiBodyDark .sapMButton {
+    background-color: #444 !important;
+    color: #fff !important;
+}

@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog title="Register">
+        <content>
+            <VBox>
+                <Label text="Username" style="font-size: 1.5rem;" />
+                <Input id="registerUsername" style="font-size: 1.5rem; height: 2.5rem;" />
+                <Label text="Email" style="font-size: 1.5rem;" />
+                <Input id="registerEmail" type="Email" style="font-size: 1.5rem; height: 2.5rem;" />
+                <Label text="Password" style="font-size: 1.5rem;" />
+                <Input id="registerPassword" type="Password" style="font-size: 1.5rem; height: 2.5rem;" />
+            </VBox>
+        </content>
+        <beginButton>
+            <Button text="Register" press="onRegisterConfirm" type="Accept" style="font-size: 1.5rem; padding: 0.5rem;" />
+        </beginButton>
+        <endButton>
+            <Button text="Close" press="onRegisterCancel" type="Reject" style="font-size: 1.5rem; padding: 0.5rem;" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,34 @@
+<mvc:View controllerName="app.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f">
+    
+    <f:ShellBar homeIcon="./logo.png" title="EXPERIENCE" homeIconPressed="onHome"
+        secondTitle="A Truspeq Service" id="shellBar" searchButtonPressed="secret"
+        showSearch="true" showNotifications="true" notificationsNumber="4" notificationsPressed="notifications">
+    </f:ShellBar>
+    <Page >
+    <Toolbar>
+        <Button text="Back" type="Neutral" icon="sap-icon://nav-back" press="onBack" />
+        <ToolbarSpacer /><ToolbarSpacer /><ToolbarSpacer />
+    </Toolbar>
+    <VBox class="sapUiContentPadding" fitContainer="true">
+        <VBox class="dateTimeBox" justifyContent="End" alignItems="End">
+            <Text text="Date: {/currentDate}" style="font-size: 1.5rem;" />
+            <Text text="Time: {/currentTime}" style="font-size: 1.5rem;" />
+        </VBox>
+        <VBox alignItems="Center" justifyContent="Center" height="100%">
+            <Label text="Username" style="font-size: 1.5rem;" />
+            <Input id="username" placeholder="Enter your Username" style="font-size: 1.5rem; height: 2.5rem;" />
+            <Label text="Email" style="font-size: 1.5rem;" />
+            <Input id="email" placeholder="Enter your Email" type="Email" style="font-size: 1.5rem; height: 2.5rem;" />
+            <Label text="Password" style="font-size: 1.5rem;" />
+            <Input id="password" placeholder="Enter your Password" type="Password" style="font-size: 1.5rem; height: 2.5rem;" />
+            <HBox justifyContent="Center" width="100%">
+                <Button text="Login" press="onLogin" type="Accept" style="font-size: 1.5rem; padding: 0.5rem;" />
+                <Button text="Register" press="onRegister" type="Neutral" style="font-size: 1.5rem; padding: 0.5rem;" />
+            </HBox>
+        </VBox>
+    </VBox>
+    </Page>
+</mvc:View>

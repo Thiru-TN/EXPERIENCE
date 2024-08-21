@@ -1,0 +1,72 @@
+<mvc:View controllerName="app.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    displayBlock="true">
+    
+    <f:ShellBar homeIcon="./logo.png" title="EXPERIENCE" homeIconPressed="onLogo"
+        secondTitle="A Truspeq Service" id="shellBar" 
+        showSearch="true" showNotifications="true" notificationsNumber="4" notificationsPressed="notifications">
+    </f:ShellBar>
+    <Page >
+    <Toolbar>
+        <Button text="Theme" type="Ghost" icon="sap-icon://action-settings" press="onTheme" />
+        <ToolbarSpacer />
+        <ToolbarSpacer />
+        <ToolbarSpacer />
+        <Button text="Login" type="Accept" icon="sap-icon://log" press="onLoginPress" />
+    </Toolbar>
+
+    <IconTabBar id="iconTabBar" select="onIconTabSelect">
+        <items>
+            <IconTabFilter key="home" icon="sap-icon://home" text="Home" />
+            <IconTabFilter key="products" icon="sap-icon://product" text="Products" />
+            <IconTabFilter key="contact" icon="sap-icon://contacts" text="Contact" />
+        </items>
+    </IconTabBar>
+
+    <VBox class="sapUiContentPadding" id="mainContainer">
+        <VBox width="100%" id="imageBox">
+            <Image src="./image1.jpg" id="currentImage" width="100%" height="400px" />
+        </VBox>
+
+        <HBox justifyContent="Center">
+            <Button icon="sap-icon://navigation-left-arrow" press="onPrevImagePress" />
+            <Button icon="sap-icon://navigation-right-arrow" press="onNextImagePress" />
+        </HBox>
+
+        <VBox class="sapUiContentPadding">
+            <Text text="Products" design="Bold" />
+            <HBox id="productTilesContainer1" class="sapUiSmallMargin productTilesRow" justifyContent="Center" alignItems="Center"></HBox>
+            <HBox id="productTilesContainer2" class="sapUiSmallMargin productTilesRow" justifyContent="Center" alignItems="Center"></HBox>
+
+            <HBox class="sapUiContentPadding" id="contactAndAboutUs">
+                <VBox class="sapUiSmallMargin" id="contactDetails">
+                    <Text text="Contact US" design="Bold" />
+                    <HBox>
+                        <Button icon="sap-icon://map" text="ITPL, Bangalore" type="Transparent"/>
+                    </HBox>
+                    <HBox>
+                        <Button icon="sap-icon://email" text="contact@experience.com" type="Transparent"/>
+                    </HBox>
+                    <HBox>
+                        <Button icon="sap-icon://phone" text="+91-1234567890" type="Transparent"/>
+                    </HBox>
+                    <HBox>
+                        <Button icon="sap-icon://map" text="Unit 11, 3rd floor, ITPL, Whitefield, Bengaluru, Karnataka 560064" type="Transparent"/>
+                    </HBox>
+                </VBox>
+                <VBox class="sapUiSmallMargin" id="aboutUs">
+                    <Image src="./logo.png" width="300px" />
+                </VBox>
+                <VBox class="sapUiSmallMargin" id="about">
+                <Text text="About US" design="Bold" />
+                    <Text text="TRUSPEQ is a SAP Sell and Services Partner, Qualified in RISE with SAP S/4 HANA Public, Private Cloud, Ariba Solutions."/> 
+                    <Text text=" Operates in India (ITPL-Blr and Tidel Park SEZ-Cbe, Chennai, Kolkatta) and UAE (Abu Dhabi and Dubai)."/> 
+                    <Text text=" Services Portfolio includes Project Implementations, Application Managed Services AMS and Expert / Specialised SAP/ IT Consulting."/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </VBox>
+    </Page>
+</mvc:View>
